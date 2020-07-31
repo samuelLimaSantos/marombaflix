@@ -1,18 +1,17 @@
 import React from "react";
 import logoImg from "../../assets/logo.png";
-import Button from "../Button";
-import "./Menu.css";
+import { ButtonLink, MenuWrapper, LogoImage } from "./style.js";
 
 const Menu = () => {
   return (
-    <nav className="Menu">
+    <MenuWrapper className="Menu">
       <a href="/">
-        <img className="Logo" src={logoImg} alt="Imagem da Logo" />
+        <LogoImage className="Logo" src={logoImg} alt="Imagem da Logo" />
       </a>
-      <Button className="ButtonLink" href="/">
+      <ButtonLink className="ButtonLink" to="/cadastro/video">
         Novo vídeo
-      </Button>
-    </nav>
+      </ButtonLink>
+    </MenuWrapper>
   );
 };
 

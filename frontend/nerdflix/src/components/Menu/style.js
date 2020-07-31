@@ -13,8 +13,8 @@ export const MenuWrapper = styled.nav`
   background-color: var(--black);
   width: 100%;
   height: 94px;
-  /* position: fixed;
-  z-index: 99999; */
+  position: fixed;
+  z-index: 99999;
   top: 0;
   left: 0;
   right: 0;
@@ -52,6 +52,7 @@ export const ButtonLink = styled(Button)`
   }
   @media (max-width: 800px) {
     position: fixed;
+    z-index: 9999;
     left: 0;
     bottom: 0;
     right: 0;

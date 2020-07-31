@@ -1,13 +1,14 @@
 import React from "react";
 import logoImg from "../../assets/logo.png";
 import { ButtonLink, MenuWrapper, LogoImage } from "./style.js";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   return (
     <MenuWrapper className="Menu">
-      <a href="/">
+      <Link to="/">
         <LogoImage className="Logo" src={logoImg} alt="Imagem da Logo" />
-      </a>
+      </Link>
       <ButtonLink className="ButtonLink" to="/cadastro/video">
         Novo vídeo
       </ButtonLink>

@@ -23,7 +23,10 @@ const CadastroCateogria = () => {
   };
 
   const storeDatas = async () => {
-    const URL = "http://localhost:8080/categorias";
+    const URL = window.location.hostname.includes("localhost")
+      ? "http://localhost:8080/categorias"
+      : "https://marombaflix.herokuapp.com/categorias";
+
     const promisse = await axios.get(URL);
     const datas = promisse.data;
     setCategorias([...datas]);

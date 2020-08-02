@@ -10,7 +10,7 @@ export const LogoImage = styled.img`
 `;
 
 export const MenuWrapper = styled.nav`
-  background-color: var(--black);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 5%, transparent 100%);
   width: 100%;
   height: 94px;
   position: fixed;
@@ -23,7 +23,40 @@ export const MenuWrapper = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid var(--primary);
+
+  @keyframes fadeBottom {
+    from {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.2) 80%,
+        transparent 100%
+      );
+    }
+    to {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.95) 80%,
+        transparent 100%
+      );
+    }
+  }
+
+  @keyframes fadeBottomOff {
+    from {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.95) 80%,
+        transparent 100%
+      );
+    }
+    to {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.1) 80%,
+        transparent 100%
+      );
+    }
+  }
 
   @media (max-width: 800px) {
     height: 40px;

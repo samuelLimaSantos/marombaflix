@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PageDefault from "../../../components/PageDefault";
 import { Link } from "react-router-dom";
 import FormField from "../../../components/FormField";
+import { Button } from "./style";
+import axios from "axios";
 
 const CadastroCateogria = () => {
   const initialValues = {
@@ -19,6 +21,17 @@ const CadastroCateogria = () => {
   const handleChange = ({ target }) => {
     setValue(target.getAttribute("name"), target.value);
   };
+
+  const storeDatas = async () => {
+    const URL = "http://localhost:8080/categorias";
+    const promisse = await axios.get(URL);
+    const datas = promisse.data;
+    setCategorias([...datas]);
+  };
+
+  useEffect(() => {
+    storeDatas();
+  }, []);
 
   return (
     <PageDefault>
@@ -60,7 +73,7 @@ const CadastroCateogria = () => {
           />
         </div>
 
-        <button>Cadastrar</button>
+        <Button>Cadastrar</Button>
       </form>
 
       <ul>

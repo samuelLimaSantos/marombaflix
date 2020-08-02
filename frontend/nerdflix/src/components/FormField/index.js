@@ -1,17 +1,27 @@
 import React from "react";
+import { FormFieldWrapper, Label, Input } from "./style";
 
 // import { Container } from './styles';
 
 const FormField = ({ value, change, name, type, title }) => {
+  const isTypeTextArea = type === "textarea";
+  const tag = isTypeTextArea ? "textarea" : "input";
+  const hasValue = Boolean(value.length);
+
   return (
-    <div>
-      <label>
-        {title}
-        {(type === "textarea" && (
-          <textarea name={name} value={value} onChange={change}></textarea>
-        )) || <input type={type} value={value} name={name} onChange={change} />}
-      </label>
-    </div>
+    <FormFieldWrapper>
+      <Label>
+        <Input
+          as={tag}
+          type={type}
+          value={value}
+          name={name}
+          onChange={change}
+          hasValue={hasValue}
+        />
+        <Label.Text>{title}</Label.Text>
+      </Label>
+    </FormFieldWrapper>
   );
 };
 

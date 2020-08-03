@@ -1,42 +1,47 @@
-import React from "react";
-import styled from "styled-components";
-import Menu from "../../components/Menu";
-import dadosIniciais from "../../data/dados_iniciais.json";
+import React, { useEffect, useState } from "react";
+import categoriasRepository from "../../repositories/categoria";
+import PageDefault from "../../components/PageDefault";
 import BannerMain from "../../components/BannerMain";
 import Carousel from "../../components/Carousel";
-import Footer from "../../components/Footer";
-
-const AppWrapper = styled.div`
-  background-color: var(--grayDark);
-`;
+import { ContainerLoading, Loading } from "./style";
 
 function Home() {
+  const [dadosIniciais, setDadosIniciais] = useState([]);
+
+  useEffect(() => {
+    categoriasRepository.getAllWithVideos().then((categoriasComVideos) => {
+      setDadosIniciais(categoriasComVideos);
+    });
+  }, []);
+
   return (
-    <AppWrapper>
-      <Menu />
+    <PageDefault paddingAll={0}>
+      {dadosIniciais.length === 0 && (
+        <ContainerLoading>
+          <Loading />
+        </ContainerLoading>
+      )}
 
-      <BannerMain
-        videoTitle={dadosIniciais.categorias[0].videos[0].titulo}
-        url={dadosIniciais.categorias[0].videos[0].url}
-        videoDescription={
-          "O que é Front-end? Trabalhando na área os termos HTML, CSS e JavaScript fazem parte da rotina das desenvolvedoras e desenvolvedores. Mas o que eles fazem, afinal? Descubra com a Vanessa!"
+      {dadosIniciais.map((categoria, indice) => {
+        if (indice === 0) {
+          return (
+            <div key={categoria.id}>
+              <BannerMain
+                videoTitle={dadosIniciais[0].videos[0].titulo}
+                url={dadosIniciais[0].videos[0].url}
+                videoDescription={
+                  "Após 10 meses de sua derrota, Caio Bottura decide voltar aos palcos e dessa vez com o apoio e companhia de grandes amigos. Esse documentário mostra o fisiculturismo de uma forma diferente, em como ele cria laços de amizades forte como ferro e vai além de um ser um esporte solitário."
+                }
+              />
+
+              <Carousel ignoreFirstVideo category={dadosIniciais[0]} />
+            </div>
+          );
         }
-      />
 
-      <Carousel ignoreFirstVideo category={dadosIniciais.categorias[0]} />
-
-      <Carousel category={dadosIniciais.categorias[1]} />
-
-      <Carousel category={dadosIniciais.categorias[2]} />
-
-      <Carousel category={dadosIniciais.categorias[3]} />
-
-      <Carousel category={dadosIniciais.categorias[4]} />
-
-      <Carousel category={dadosIniciais.categorias[5]} />
-
-      <Footer />
-    </AppWrapper>
+        return <Carousel key={categoria.id} category={categoria} />;
+      })}
+    </PageDefault>
   );
 }
 

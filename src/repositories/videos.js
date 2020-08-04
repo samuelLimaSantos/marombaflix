@@ -1,6 +1,6 @@
 import config from "../config";
 
-const URL_VIDEOS = `${config.URL_BACKEND_TOP}/videos`;
+const URL_VIDEOS = `${config.URL_BACKEND}/videos`;
 
 function create(objetoDoVideo) {
   return fetch(`${URL_VIDEOS}?_embed=videos`, {
@@ -10,6 +10,7 @@ function create(objetoDoVideo) {
     },
     body: JSON.stringify(objetoDoVideo),
   }).then(async (respostaDoServidor) => {
+    console.log(respostaDoServidor);
     if (respostaDoServidor.ok) {
       const resposta = await respostaDoServidor.json();
       return resposta;

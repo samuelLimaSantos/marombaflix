@@ -12,6 +12,7 @@ O projeto em questão é uma releitura da netflix voltada para o público que se
 ## Tecnologias utilizadas :computer:
 
 - ReactJS
+- Styled Components
 - Json server
 
 ## Agradecimentos

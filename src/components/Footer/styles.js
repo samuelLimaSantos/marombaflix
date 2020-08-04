@@ -20,3 +20,15 @@ export const ImageLogo = styled.img`
     width: 100px;
   }
 `;
+
+export const SocialMedia = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 25%;
+  margin: 0 auto;
+  max-width: 100px;
+`;
+
+SocialMedia.Img = styled.img`
+  width: 30px;
+`;

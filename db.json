@@ -6,7 +6,6 @@
       "description": "Uma categoria qualquer para os monstrengos",
       "color": "#cbd1ff"
     },
-
     {
       "id": 2,
       "name": "Dieta",
@@ -236,6 +235,18 @@
       "categoriaId": 6,
       "titulo": "JAX - ZYZZ Veni Vidi Vici (continuando um legado) parte 3",
       "url": "https://www.youtube.com/watch?v=A33Zks_9ON8"
+    },
+    {
+      "titulo": "O SHAPE SE TRANSFORMOU COMPLETAMENTE FALTANDO 21 DIAS!!",
+      "url": "https://www.youtube.com/watch?v=b0i92jHBy1U",
+      "categoriaId": 1,
+      "id": 34
+    },
+    {
+      "titulo": "O MELHOR MEN'S PHYSIQUE DO MUNDO AVALIOU MEU SHAPE!!🔥",
+      "url": "https://www.youtube.com/watch?v=7vPVhXC8rXI",
+      "categoriaId": 1,
+      "id": 35
     }
   ]
 }
